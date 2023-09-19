@@ -204,7 +204,7 @@
                                     <div class="ps-product__content">
                                         <a class="ps-product__title" href="product-default.html" style="padding: 0px;">{{item.producto.titulo}}
                                             <span  style="margin-bottom: 0px;"> &nbsp;x{{item.cantidad}}</span></a>
-                                        <p  style="margin-bottom: 0px;"> Tallas: {{item.variedad.valor}}</p>
+                                        <p  style="margin-bottom: 0px;"> Opción: {{item.variedad.valor}}</p>
                                     </div>
                                 </div>
                                 
@@ -275,7 +275,7 @@
                                     <input class="form-control" type="radio" id="shipping-1" name="metodo_pago" [(ngModel)]="metodo_pago" value="Yape o Plin">
                                     <label for="shipping-1" class="text-muted"><b>¡Paga al instante con Nequi </b></label>
 
-                                    <p *ngIf="metodo_pago == 'Yape o Plin'" style="font-size: 13px;margin-bottom: 2.3rem;">(Luego de hacer click en "PROCESAR PEDIDO" podrás visualizar nuestros datos de pago).</p>
+                                    <!-- <p *ngIf="metodo_pago == 'Yape o Plin'" style="font-size: 13px;margin-bottom: 2.3rem;">(Luego de hacer click en "PROCESAR PEDIDO" podrás visualizar nuestros datos de pago).</p> -->
                                 </div>
                                 <div class="ps-radio">
                                     <input class="form-control" type="radio" id="shipping-2" name="metodo_pago" [(ngModel)]="metodo_pago" value="Transferencia o Deposito">

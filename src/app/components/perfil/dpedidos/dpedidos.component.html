@@ -36,16 +36,16 @@
                       <div class="row" *ngIf="orden.estado == 'En espera'">
                         <div class="col-12 mb-4" *ngIf="orden.metodo_pago == 'Transferencia o Deposito'">
                           <h4>¡Finaliza tu compra!</h4>
-                          <p style="font-size: 1.5rem;">Realiza el pago de tu pedido por {{orden.metodo_pago}}, y envíanos una imagen de la operación a nuestro número de <b style="color: #191919;">WhatsApp 987654321</b> para confirmar la compra y agendar el envío de tu pedido.</p>
+                          <p style="font-size: 1.5rem;">Realiza el pago de tu pedido por {{orden.metodo_pago}}, y envíanos una imagen de la operación a nuestro número de <b style="color: #191919;">WhatsApp 3103103109</b> para confirmar la compra y agendar el envío de tu pedido.</p>
 
                           <p style="font-size: 1.5rem;">*Si te encuentras fuera de Lima y deseas realizar el pago vía Depósito, no olvides agregar COP/7.50 de comisión bancaria al monto total de tu compra.</p>
 
                           <h4>Datos de pago:</h4> 
                           <p>
-                            <b style="color: #191919;" style="font-size: 1.5rem;">Nro. de Cuenta Soles:</b> 878-654619584654-3 <br>
+                            <b style="color: #191919;" style="font-size: 1.5rem;">Nro. de Cuenta:</b> 878-654619584654-3 <br>
                             <b style="color: #191919;" style="font-size: 1.5rem;">Código Interbancario:</b> 002-13245674987414654 <br>
                             <b style="color: #191919;" style="font-size: 1.5rem;">Titular:</b> Grupo NTienda E.I.R.L. <br>
-                            <b style="color: #191919;" style="font-size: 1.5rem;">RUC:</b> 20000000001 <br>
+                            <b style="color: #191919;" style="font-size: 1.5rem;">NIT:</b> 20000000001 <br>
                           </p>
 
                           <p style="font-size: 1.5rem;">Realiza el pago en las próximas 24 horas. Pasadas las 24 horas, tu pedido será cancelado automáticamente.</p>
@@ -53,7 +53,7 @@
                         </div>
                         <div class="col-12 mb-4" *ngIf="orden.metodo_pago == 'Yape o Plin'">
                             <p style="font-size: 1.5rem;">
-                              Realiza el pago de tu pedido usando <b>Yape o Plin al número 943283912</b> y envíanos una imagen de la operación por WhatsApp al mismo número para confirmar la compra y agendar el envío de tu pedido.
+                              Realiza el pago de tu pedido usando <b>Nequi o Daviplata al número 3103103109</b> y envíanos una imagen de la operación por WhatsApp al mismo número para confirmar la compra y agendar el envío de tu pedido.
                             </p>
                             <p style="font-size: 1.5rem;">
                               Realiza el pago en las próximas 24 horas. Pasadas las 24 horas, tu pedido será cancelado automáticamente.
@@ -190,7 +190,7 @@
                                             <a [routerLink]="['/productos/'+item.producto.slug]" style="cursor: pointer;" class="nav-link font-weight-bold">{{item.producto.titulo}}</a>
                                           </h3>
                                           <ul class="list-unstyled font-size-xs mt-n2 mb-2" style="margin-left: 1rem;">
-                                            <li class="mb-0"><span class="text-muted">TALLA:</span> {{item.variedad.valor}}</li>
+                                            <li class="mb-0"><span class="text-muted">Variación:</span> {{item.variedad.valor}}</li>
                                           </ul>
                                           <a *ngIf="!item.estado" (click)="openModal(item)" style="cursor: pointer;color: #000;margin-left: 1rem;" data-toggle="modal" [attr.data-target]="'#review-'+item._id">[Emitir reseña]</a>
                                           <span *ngIf="item.estado"  class="badge badge-warning" style="background-color: #f1ee51;margin-left: 1rem;">Comentario emitido</span>

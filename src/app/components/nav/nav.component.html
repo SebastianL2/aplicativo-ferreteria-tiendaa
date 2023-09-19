@@ -131,7 +131,7 @@ color:#191919" *ngIf="config.envio_activacion != 'Desactivado'">
                                   </span>
                                   <a class="ps-product__title" [routerLink]="['/productos/',item.producto.slug]">{{item.producto.titulo}}</a>
                                   <p> Cantidad: {{item.cantidad}}</p>
-                                  <p> Talla: {{item.variedad.variedad}}</p>
+                                  <p> Opción: {{item.variedad.variedad}}</p>
                                   <span class="ps-product__price">
                                       <ng-container *ngIf="currency != 'COP'">         
                                         <span class=" mr-3"><b style="    color: #999ea9;">${{item.producto.precio_dolar}}</b></span>
@@ -202,7 +202,7 @@ color:#191919" *ngIf="config.envio_activacion != 'Desactivado'">
                               <div class="ps-product__content"><span  style="cursor: pointer;" (click)="eliminar_item(item._id)" class="ps-product__remove"><i class="icon-cross"></i></span>
                                   <a class="ps-product__title" [routerLink]="['/productos/',item.producto.slug]">{{item.producto.titulo}}</a>
                                   <p> Cantidad: {{item.cantidad}}</p>
-                                  <p> Talla: {{item.variedad.valor}}</p>
+                                  <p> opción: {{item.variedad.valor}}</p>
                                   <span class="ps-product__price">
                                     <ng-container *ngIf="currency != 'COP'">         
                                         <span class=" mr-3"><b style="    color: #999ea9;">${{item.producto.precio_dolar}}</b></span>
