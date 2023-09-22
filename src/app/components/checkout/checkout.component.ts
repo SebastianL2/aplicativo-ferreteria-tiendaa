@@ -213,7 +213,7 @@ export class CheckoutComponent implements OnInit {
     this.direccion.zona = str_select_pais[1];
     this.direccion.pais = pais;
 
-    if(pais == 'Perú'){
+    if(pais == 'Colombia'){
       setTimeout(() => {
         $('#sl-region').prop('disabled', false);
       }, 50);
@@ -417,7 +417,7 @@ export class CheckoutComponent implements OnInit {
   select_direccion_envio(item:any){
     this.envio_gratis = false;
     this.direccion_envio = item;
-    if(this.direccion_envio.pais != 'Perú'){
+    if(this.direccion_envio.pais != 'Colombia'){
       if(this.direccion_envio.zona == 'Zona 1'){
         this.envio = 12;
       }else if(this.direccion_envio.zona == 'Zona 2'){
@@ -427,7 +427,7 @@ export class CheckoutComponent implements OnInit {
       }else if(this.direccion_envio.zona == 'Zona 4'){
         this.envio = 35;
       }
-    }else if(this.direccion_envio.pais == 'Perú'){
+    }else if(this.direccion_envio.pais == 'Colombia'){
       if(this.direccion_envio.region == 'Lima'){
         this.envio = 10;
       }else if(this.direccion_envio.region != 'Lima'){
@@ -505,9 +505,9 @@ export class CheckoutComponent implements OnInit {
             notification_url: 'https://hookb.in/6JlGBe8MYbsoRnwwRd1Z',
             items: items,
             back_urls: {
-                failure: "http://localhost:5000/verificar-pago/failure/"+this.direccion_envio._id+'/'+this.venta.cupon+'/'+this.envio+'/'+this.tipo_descuento+'/'+this.valor_descuento+'/'+this.total_pagar+'/'+this.subtotal,
-                pending: "http://localhost:5000/verificar-pago/pending/"+this.direccion_envio._id+'/'+this.venta.cupon+'/'+this.envio+'/'+this.tipo_descuento+'/'+this.valor_descuento+'/'+this.total_pagar+'/'+this.subtotal,
-                success: "http://localhost:5000/verificar-pago/success/"+this.direccion_envio._id+'/'+this.venta.cupon+'/'+this.envio+'/'+this.tipo_descuento+'/'+this.valor_descuento+'/'+this.total_pagar+'/'+this.subtotal,
+                failure: "http://localhost:4200/verificar-pago/failure/"+this.direccion_envio._id+'/'+this.venta.cupon+'/'+this.envio+'/'+this.tipo_descuento+'/'+this.valor_descuento+'/'+this.total_pagar+'/'+this.subtotal,
+                pending: "http://localhost:4200/verificar-pago/pending/"+this.direccion_envio._id+'/'+this.venta.cupon+'/'+this.envio+'/'+this.tipo_descuento+'/'+this.valor_descuento+'/'+this.total_pagar+'/'+this.subtotal,
+                success: "http://localhost:4200/verificar-pago/success/"+this.direccion_envio._id+'/'+this.venta.cupon+'/'+this.envio+'/'+this.tipo_descuento+'/'+this.valor_descuento+'/'+this.total_pagar+'/'+this.subtotal,
             },
             auto_return: "approved"
           }

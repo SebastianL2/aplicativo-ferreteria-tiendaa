@@ -128,17 +128,17 @@
                               <option value="" selected disabled>Seleccionar</option>
                               <ng-container *ngFor="let item of zonas">
                                   <ng-container  *ngIf="currency =='COP'">
-                                      <option value="{{item.country}}_{{item.zona}}" *ngIf="item.country =='Perú'">{{item.country}}</option>
+                                      <option value="{{item.country}}_{{item.zona}}" *ngIf="item.country =='Colombia'">{{item.country}}</option>
                                   </ng-container>
                                   <ng-container  *ngIf="currency !='COP'">
-                                      <option value="{{item.country}}_{{item.zona}}" *ngIf="item.country !='Perú'">{{item.country}}</option>
+                                      <option value="{{item.country}}_{{item.zona}}" *ngIf="item.country !='Colombia'">{{item.country}}</option>
                                   </ng-container>
                               
                               </ng-container>
                           </select>
                       </div>
            
-                      <div class="form-group" *ngIf="direccion.pais == 'Perú'">
+                      <div class="form-group" *ngIf="direccion.pais == 'Colombia'">
                           
                           <select id="sl-region"  name="region" [(ngModel)]="direccion.region" class="form-control" disabled (change)="select_region()">
                               <option value="" selected disabled>Seleccionar</option>
@@ -305,17 +305,17 @@
                               <option value="" selected disabled>Seleccionar</option>
                               <ng-container *ngFor="let item of zonas">
                                   <ng-container  *ngIf="currency =='COP'">
-                                      <option value="{{item.country}}_{{item.zona}}" *ngIf="item.country =='Perú'">{{item.country}}</option>
+                                      <option value="{{item.country}}_{{item.zona}}" *ngIf="item.country =='Colombia'">{{item.country}}</option>
                                   </ng-container>
                                   <ng-container  *ngIf="currency !='COP'">
-                                      <option value="{{item.country}}_{{item.zona}}" *ngIf="item.country !='Perú'">{{item.country}}</option>
+                                      <option value="{{item.country}}_{{item.zona}}" *ngIf="item.country !='Colombia'">{{item.country}}</option>
                                   </ng-container>
                               
                               </ng-container>
                           </select>
                       </div>
            
-                      <div class="form-group" *ngIf="direccion.pais == 'Perú'">
+                      <div class="form-group" *ngIf="direccion.pais == 'Colombia'">
                           
                           <select id="sl-region"  name="region" [(ngModel)]="direccion.region" class="form-control" disabled (change)="select_region()">
                               <option value="" selected disabled>Seleccionar</option>

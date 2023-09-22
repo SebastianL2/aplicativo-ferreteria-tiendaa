@@ -4,17 +4,11 @@ left: 0;
 z-index: 1030;
 background: #f1ee51;
 color:#191919" *ngIf="config.envio_activacion != 'Desactivado'">
-    <div class="col-12 text-center">
-        ENVIO GRATIS POR COMPRAS MAYORES A
-        <span *ngIf="currency == 'COP'">COP/{{config.monto_min_soles}}</span>
-        <span *ngIf="currency != 'COP'">${{config.monto_min_dolares}}</span>
-    </div>
 </div>
 <header class="header header--standard" data-sticky="true" style="    background: #24252a !important;">
    
     <div class="header__left">
         <a class="ps-logo" [routerLink]="['/']" routerLinkActive="router-link-active">
-        
             <img src="https://ferrumac.com.co/images/logo.png" alt="" style="width:150px;">
         </a>
     </div>

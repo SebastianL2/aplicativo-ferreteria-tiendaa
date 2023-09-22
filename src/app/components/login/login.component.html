@@ -12,58 +12,84 @@
     </div>
     <div class="ps-page__content">
       <div class="ps-tab-root">
-        <div class="ps-form--auth" >
+        <div class="ps-form--auth">
           <ul class="ps-tab-list">
             <li [ngClass]="{'active': op == 1}" (click)="changeOp(1)"><a>Iniciar sesión</a></li>
             <li [ngClass]="{'active': op == 2}" (click)="changeOp(2)"><a>Registrate</a></li>
           </ul>
           <div class="ps-tabs">
-            <div class="ps-tab"  [ngClass]="{'active': op == 1}">
+            <div class="ps-tab" [ngClass]="{'active': op == 1}">
               <form class="ps-form--auth" #loginForm="ngForm" (ngSubmit)="func_login(loginForm)">
                 <div class="form-group">
-                  <input class="form-control" type="email" placeholder="Correo electrónico" required="" name="email" [(ngModel)]="user.email">
+                  <input class="form-control" type="email" placeholder="Correo electrónico" required name="email"
+                    required [(ngModel)]="user.email" #email2="ngModel"
+                    pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}">
+                  <div *ngIf="email2.invalid && (email2.dirty || email2.touched)" class="alert alert-danger">
+                    <div *ngIf="email2 && email2.errors && email2.errors.pattern">
+                      Ingresa un correo electrónico válido.
+                    </div>
+                  </div>
                 </div>
                 <div class="form-group">
-                  <input class="form-control" type="password" placeholder="Tu contraseña" required="" name="password" [(ngModel)]="user.password">
+                  <input class="form-control" type="password" placeholder="Tu contraseña" required="" name="password"
+                    [(ngModel)]="user.password">
                 </div>
-          
+
                 <div class="form-group submit">
                   <button type="submit" class="ps-btn ps-btn--fullwidth ps-btn--black">Ingresar</button>
                 </div>
               </form>
-             
-            </div>
-            <div class="ps-tab"  [ngClass]="{'active': op == 2}" >
-                <p class="text-justify" style="color: #191919; margin-bottom: 2rem;">
-                    <strong>
-                        !Hola! Registrarte te ayudará a mantenerte al tanto de todos los detalles de tu pedido futbolero en el momento que quieras.
-                    </strong>
-                </p>
 
-                <form #registroForm="ngForm" (ngSubmit)="registro(registroForm)">
-                  <div class="form-group">
-                    <input class="form-control" type="text"  placeholder="Nombres" required="" name="nombres" [(ngModel)]="new_user.nombres">
+            </div>
+            <div class="ps-tab" [ngClass]="{'active': op == 2}">
+              <p class="text-justify" style="color: #191919; margin-bottom: 2rem;">
+                <strong>
+                  !Hola! Registrarte te ayudará a mantenerte al tanto de todos los detalles de tu pedido futbolero en el
+                  momento que quieras.
+                </strong>
+              </p>
+
+              <form #registroForm="ngForm" (ngSubmit)="registro(registroForm)">
+                <div class="form-group">
+                  <input class="form-control" type="text" placeholder="Nombres" required="" name="nombres"
+                    [(ngModel)]="new_user.nombres">
+                </div>
+                <div class="form-group">
+                  <input class="form-control" type="text" placeholder="Apellidos" required="" name="apellidos"
+                    [(ngModel)]="new_user.apellidos">
+                </div>
+                <div class="form-group">
+                  <input class="form-control" type="email" placeholder="Tu correo electrónico" required name="email"
+                    [(ngModel)]="new_user.email" #email="ngModel"
+                    pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}">
+                  <div *ngIf="email.invalid && (email.dirty || email.touched)" class="alert alert-danger">
+                    <div *ngIf="email && email.errors && email.errors.required">
+                      El correo electrónico es requerido.
+                    </div>
+                    <div *ngIf="email && email.errors && email.errors.pattern">
+                      Ingresa un correo electrónico válido.
+                    </div>
                   </div>
-                  <div class="form-group">
-                    <input class="form-control" type="text"  placeholder="Apellidos" required="" name="apellidos" [(ngModel)]="new_user.apellidos">
-                  </div>
-                  <div class="form-group">
-                    <input class="form-control" type="email" placeholder="Tu correo electrónico" required="" name="email" [(ngModel)]="new_user.email">
-                  </div>
-                  <div class="form-group">
-                    <input class="form-control" type="text" placeholder="Tu contraseña" required="" name="password" [(ngModel)]="new_user.password">
-                  </div>
-                  <div class="form-group">
-                    <input class="form-control" type="date" required="" name="f_nacimiento" [(ngModel)]="new_user.f_nacimiento">
-                  </div>
-                  <div class="ps-form__desc">
-                    <p>Sus datos personales se utilizarán para respaldar su experiencia en este sitio web, para administrar el acceso a su cuenta y para otros fines descritos en nuestra <a [routerLink]="['/terminos-condiciones']" routerLinkActive="router-link-active" ><b>política de privacidad</b></a>.</p>
-                  </div>
-                  
-                  <div class="form-group submit">
-                    <button class="ps-btn ps-btn--fullwidth ps-btn--black" type="submit">Registrarme</button>
-                  </div>
-                </form>
+                </div>
+                <div class="form-group">
+                  <input class="form-control" type="text" placeholder="Tu contraseña" required="" name="password"
+                    [(ngModel)]="new_user.password">
+                </div>
+                <div class="form-group">
+                  <input class="form-control" type="date" required="" name="f_nacimiento"
+                    [(ngModel)]="new_user.f_nacimiento">
+                </div>
+                <div class="ps-form__desc">
+                  <p>Sus datos personales se utilizarán para respaldar su experiencia en este sitio web, para
+                    administrar el acceso a su cuenta y para otros fines descritos en nuestra <a
+                      [routerLink]="['/terminos-condiciones']" routerLinkActive="router-link-active"><b>política de
+                        privacidad</b></a>.</p>
+                </div>
+
+                <div class="form-group submit">
+                  <button class="ps-btn ps-btn--fullwidth ps-btn--black" type="submit">Registrarme</button>
+                </div>
+              </form>
             </div>
           </div>
         </div>

@@ -68,11 +68,11 @@ export class IndexProductoComponent implements OnInit {
       var slider : any = document.getElementById('ps-sliderr');
 
       noUiSlider.create(slider, {
-          start: [0, 1000],
+          start: [0, 1000000],
           connect: true,
           range: {
               'min': 0,
-              'max': 300
+              'max': 1000000
           },
           tooltips: [true,true],
        
