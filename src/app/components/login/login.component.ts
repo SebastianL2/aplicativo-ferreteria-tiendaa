@@ -97,16 +97,60 @@ export class LoginComponent implements OnInit {
   registro(registroForm:any){
     if(registroForm.valid){
      
-      if(this.new_user.password.length <=5){
+      const password = this.new_user.password;
+
+      // Verificar la longitud mínima
+      if (password.length < 8) {
         iziToast.show({
-            title: 'ERROR',
-            titleColor: '#FF0000',
-            color: '#FFF',
-            class: 'text-danger',
-            position: 'topRight',
-            message: 'La contraseña debe tener mas de 5 caracteres'
+          title: 'ERROR',
+          titleColor: '#FF0000',
+          color: '#FFF',
+          class: 'text-danger',
+          position: 'topRight',
+          message: 'La contraseña debe tener al menos 8 caracteres.',
         });
-      }else{
+      } else if (!/[A-Z]/.test(password)) {
+        // Verificar si contiene al menos una letra mayúscula
+        iziToast.show({
+          title: 'ERROR',
+          titleColor: '#FF0000',
+          color: '#FFF',
+          class: 'text-danger',
+          position: 'topRight',
+          message: 'La contraseña debe contener al menos una letra mayúscula.',
+        });
+      } else if (!/[a-z]/.test(password)) {
+        // Verificar si contiene al menos una letra minúscula
+        iziToast.show({
+          title: 'ERROR',
+          titleColor: '#FF0000',
+          color: '#FFF',
+          class: 'text-danger',
+          position: 'topRight',
+          message: 'La contraseña debe contener al menos una letra minúscula.',
+        });
+      } else if (!/[0-9]/.test(password)) {
+        // Verificar si contiene al menos un número
+        iziToast.show({
+          title: 'ERROR',
+          titleColor: '#FF0000',
+          color: '#FFF',
+          class: 'text-danger',
+          position: 'topRight',
+          message: 'La contraseña debe contener al menos un número.',
+        });
+      } else if (!/[@#$%^&+=!]/.test(password)) {
+        // Verificar si contiene al menos un carácter especial (puedes personalizar la lista de caracteres especiales)
+        iziToast.show({
+          title: 'ERROR',
+          titleColor: '#FF0000',
+          color: '#FFF',
+          class: 'text-danger',
+          position: 'topRight',
+          message: 'La contraseña debe contener al menos un carácter especial.',
+        });
+      }
+        else{
         console.log(this.new_user);
         
         this._guestService.registro_cliente(this.new_user).subscribe(
@@ -120,7 +164,7 @@ export class LoginComponent implements OnInit {
                   color: '#FFF',
                   class: 'text-success',
                   position: 'topRight',
-                  message: 'Se registro correctamente en Prágol.'
+                  message: 'Se registro correctamente en Ferrumac.'
               });
               this.user.email = this.new_user.email;
               this.user.password = this.new_user.password;
