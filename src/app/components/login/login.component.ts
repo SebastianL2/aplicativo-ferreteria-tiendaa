@@ -139,7 +139,7 @@ export class LoginComponent implements OnInit {
           position: 'topRight',
           message: 'La contraseña debe contener al menos un número.',
         });
-      } else if (!/[@#$%^&+=!]/.test(password)) {
+      } else if (!/.*[!@#$%^&*()_+{}\[\]:;<>,.?~\\/-].*/.test(password)) {
         // Verificar si contiene al menos un carácter especial (puedes personalizar la lista de caracteres especiales)
         iziToast.show({
           title: 'ERROR',
